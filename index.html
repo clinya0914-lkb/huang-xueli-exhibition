@@ -551,6 +551,202 @@
                 font-size: 1.1em;
             }
         }
+
+        /* ===== 媒體報導 ===== */
+        .media-section {
+            padding: 80px 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .media-section .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .media-section .section-title h2 {
+            font-size: 2.2em;
+            font-weight: 300;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .media-section .section-title p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.05em;
+        }
+
+        .media-layout {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* 報紙剪報 */
+        .newspaper-clip {
+            position: relative;
+        }
+
+        .newspaper-clip img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .newspaper-clip img:hover {
+            transform: scale(1.02);
+        }
+
+        .newspaper-label {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            font-size: 0.8em;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* 新聞連結區 */
+        .media-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .media-links-title {
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85em;
+            margin-bottom: 6px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .news-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 16px 20px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.25s, border-color 0.25s, transform 0.25s;
+        }
+
+        .news-card:hover {
+            background: rgba(192,57,43,0.25);
+            border-color: #c0392b;
+            transform: translateX(4px);
+        }
+
+        .news-card .news-icon {
+            font-size: 1.6em;
+            flex-shrink: 0;
+        }
+
+        .news-card .news-info {
+            flex: 1;
+        }
+
+        .news-card .news-source {
+            font-size: 0.75em;
+            color: #c0392b;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .news-card .news-headline {
+            font-size: 0.97em;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .news-card .news-date {
+            font-size: 0.78em;
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+        }
+
+        .news-card .news-arrow {
+            color: rgba(255,255,255,0.3);
+            font-size: 1.1em;
+            flex-shrink: 0;
+        }
+
+        /* 影片與相簿 */
+        .media-extras {
+            max-width: 1100px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .media-extra-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 22px 24px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.25s, border-color 0.25s, transform 0.25s;
+        }
+
+        .media-extra-card:hover {
+            background: rgba(192,57,43,0.2);
+            border-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        .media-extra-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .icon-video { background: rgba(192,57,43,0.3); }
+        .icon-album { background: rgba(52,152,219,0.3); }
+
+        .media-extra-info strong {
+            display: block;
+            font-size: 1em;
+            margin-bottom: 4px;
+        }
+
+        .media-extra-info span {
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .media-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .media-extras {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -563,6 +759,7 @@
                 <li><a href="#roles">身份</a></li>
                 <li><a href="#story">故事</a></li>
                 <li><a href="#art">藝術</a></li>
+                        <li><a href="#media">媒體</a></li>
                 <li><a href="#achievements">成就</a></li>
             </ul>
         </div>
@@ -799,6 +996,86 @@
                         <p>《從泥土裡長出翅膀》主題展覽，展出油畫與色鉛筆插圖創作</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 媒體報導 -->
+        <section class="media-section" id="media">
+            <div class="section-title">
+                <h2>媒體報導</h2>
+                <p>各大媒體對黃雪梨教授畫展的專題報導與現場採訪</p>
+            </div>
+
+            <div class="media-layout">
+                <!-- 報紙剪報 -->
+                <div class="newspaper-clip">
+                    <div class="newspaper-label">📰 報紙剪報 · 2026.04.15</div>
+                    <img src="新聞報導.jpg" alt="工商時報報導：黃雪梨畫展 鹿港高中展出" loading="lazy">
+                </div>
+
+                <!-- 新聞連結 -->
+                <div class="media-links">
+                    <div class="media-links-title">新聞報導連結</div>
+
+                    <a class="news-card" href="https://www.ctee.com.tw/news/20260415700342-439901?utm=copy_link" target="_blank" rel="noopener">
+                        <div class="news-icon">📊</div>
+                        <div class="news-info">
+                            <div class="news-source">工商時報 CTEE</div>
+                            <div class="news-headline">黃雪梨畫展 鹿港高中展出</div>
+                            <div class="news-date">2026.04.15 · 產業動態／企業服務</div>
+                        </div>
+                        <div class="news-arrow">›</div>
+                    </a>
+
+                    <a class="news-card" href="https://tw.stock.yahoo.com/share/9f453d9d-3cf2-38c8-bfe5-ad867822db06" target="_blank" rel="noopener">
+                        <div class="news-icon">📈</div>
+                        <div class="news-info">
+                            <div class="news-source">Yahoo 奇摩股市</div>
+                            <div class="news-headline">黃雪梨畫展 鹿港高中展出</div>
+                            <div class="news-date">2026.04.15</div>
+                        </div>
+                        <div class="news-arrow">›</div>
+                    </a>
+
+                    <a class="news-card" href="https://www.chinatimes.com/newspapers/20260415000408-260210" target="_blank" rel="noopener">
+                        <div class="news-icon">🗞️</div>
+                        <div class="news-info">
+                            <div class="news-source">中國時報</div>
+                            <div class="news-headline">黃雪梨畫展 鹿港高中展出</div>
+                            <div class="news-date">2026.04.15</div>
+                        </div>
+                        <div class="news-arrow">›</div>
+                    </a>
+
+                    <a class="news-card" href="https://pse.is/8x88w9" target="_blank" rel="noopener">
+                        <div class="news-icon">🔗</div>
+                        <div class="news-info">
+                            <div class="news-source">其他媒體報導</div>
+                            <div class="news-headline">更多相關新聞報導</div>
+                            <div class="news-date">2026.04.15</div>
+                        </div>
+                        <div class="news-arrow">›</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 影片與相簿 -->
+            <div class="media-extras">
+                <a class="media-extra-card" href="https://youtu.be/n8XnfN8woXs?si=sZD_WjisprELdCwo" target="_blank" rel="noopener">
+                    <div class="media-extra-icon icon-video">▶</div>
+                    <div class="media-extra-info">
+                        <strong>影片採訪</strong>
+                        <span>記者現場採訪黃雪梨教授，暢談畫展理念與創作歷程，點擊觀看完整影片</span>
+                    </div>
+                </a>
+
+                <a class="media-extra-card" href="https://pse.is/8x97gv" target="_blank" rel="noopener">
+                    <div class="media-extra-icon icon-album">📷</div>
+                    <div class="media-extra-info">
+                        <strong>開幕式精彩影像</strong>
+                        <span>4/11 鹿港高中校慶開幕式共享相簿，含貴賓參展盛況完整紀錄</span>
+                    </div>
+                </a>
             </div>
         </section>
 
