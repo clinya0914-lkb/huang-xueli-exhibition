@@ -79,7 +79,11 @@
 
         /* ===== 英雄區 ===== */
         .hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background-image:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('20.從泥土裡長出翅膀-v2.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
             padding: 80px 20px;
             text-align: center;
@@ -90,12 +94,12 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(192, 57, 43, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            inset: 0;
+            background:
+                url('14.花海迎曦.jpg') left top / 25% auto no-repeat,
+                url('6.花下陪伴.jpg') right bottom / 25% auto no-repeat;
+            opacity: 0.18;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -144,7 +148,11 @@
         /* ===== 簡介區 ===== */
         .intro-section {
             padding: 80px 20px;
-            background: white;
+            background:
+                linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+                url('17.林間靜流.jpg') left center / 50% auto no-repeat,
+                url('10.瀑光拾影.jpg') right center / 50% auto no-repeat;
+            background-color: #fafafa;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
@@ -170,12 +178,8 @@
         }
 
         .intro-image {
-            background: linear-gradient(135deg, #ecf0f1 0%, #f5f5f5 100%);
             border-radius: 10px;
-            padding: 30px;
             text-align: center;
-            color: #999;
-            font-size: 0.9em;
         }
 
         .intro-image img {
@@ -581,7 +585,7 @@
                 </p>
             </div>
             <div class="intro-image">
-                <img src="portrait.png" alt="黃雪梨教授" loading="lazy">
+                <img src="雜誌封面故事.jpg" alt="黃雪梨教授" loading="lazy">
             </div>
         </section>
 
