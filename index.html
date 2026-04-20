@@ -303,7 +303,9 @@
         /* ===== 藝術創作理念 ===== */
         .art-section {
             padding: 80px 20px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+            background:
+                linear-gradient(rgba(248,246,243,0.92), rgba(248,246,243,0.92)),
+                url('14.花海迎曦.jpg') center / cover no-repeat;
         }
 
         .art-title {
@@ -327,31 +329,36 @@
 
         .art-item {
             text-align: center;
+            cursor: pointer;
         }
 
         .art-item-image {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            min-height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            aspect-ratio: 3/4;
             overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .art-item:hover .art-item-image {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+            transform: translateY(-6px);
         }
 
         .art-item-image img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 8px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .art-item:hover .art-item-image img {
+            transform: scale(1.05);
         }
 
         .art-item h3 {
-            font-size: 1.2em;
+            font-size: 1.15em;
             color: #2c3e50;
             margin-bottom: 10px;
             font-weight: bold;
@@ -359,16 +366,18 @@
 
         .art-item p {
             color: #666;
-            font-size: 0.95em;
+            font-size: 0.93em;
+            line-height: 1.7;
         }
 
         .art-philosophy {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: rgba(255,255,255,0.9);
             padding: 40px;
-            border-radius: 10px;
+            border-radius: 12px;
             border-left: 4px solid #c0392b;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         .art-philosophy h3 {
@@ -713,7 +722,7 @@
                 <div class="art-grid">
                     <div class="art-item">
                         <div class="art-item-image">
-                            <img src="art-02.png" alt="田間的女人" loading="lazy">
+                            <img src="4.%20田間的女人.jpg" alt="田間的女人" loading="lazy">
                         </div>
                         <h3>田間的女人</h3>
                         <p>戴著斗笠、穿著紅花上衣的女性在花草綠葉間專注勞動，象徵女性在看似平凡的日常中隱含的堅韌力量。</p>
@@ -721,7 +730,7 @@
 
                     <div class="art-item">
                         <div class="art-item-image">
-                            <img src="art-03.png" alt="瀑光拾影" loading="lazy">
+                            <img src="10.%20瀑光拾影.jpg" alt="瀑光拾影" loading="lazy">
                         </div>
                         <h3>瀑光拾影</h3>
                         <p>捕捉自然中光與影的詩意對話，展現黃教授對光影細微變化的敏銳觀察與深刻理解。</p>
@@ -729,7 +738,7 @@
 
                     <div class="art-item">
                         <div class="art-item-image">
-                            <img src="art-01.png" alt="從泥土裡長出翅膀" loading="lazy">
+                            <img src="20.從泥土裡長出翅膀-v2.jpg" alt="從泥土裡長出翅膀" loading="lazy">
                         </div>
                         <h3>從泥土裡長出翅膀</h3>
                         <p>色鉛筆插畫系列，描繪一名女性蹲在地上，雙手栽種著散發出形似巨大羽翼光芒的植物，象徵從困境中成長的力量。</p>
