@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黃雪梨教授 - 從泥土裡長出翅膀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans CJK TC', Georgia, serif;
+            background: #fafafa;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* 導航列 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.3em;
+            color: #c0392b;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c0392b;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 頁面主要容器 */
+        main {
+            margin-top: 60px;
+        }
+
+        /* ===== 英雄區 ===== */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(192, 57, 43, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.8em;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            font-size: 1.1em;
+            color: #bdc3c7;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .hero .cta-button {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1em;
+        }
+
+        .hero .cta-button:hover {
+            background: #a93226;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== 簡介區 ===== */
+        .intro-section {
+            padding: 80px 20px;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .intro-text p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .intro-text strong {
+            color: #c0392b;
+        }
+
+        .intro-image {
+            background: linear-gradient(135deg, #ecf0f1 0%, #f5f5f5 100%);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .intro-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== 身份與角色 ===== */
+        .roles-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+        }
+
+        .roles-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .roles-title h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .roles-title p {
+            color: #999;
+            font-size: 1.05em;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .role-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #c0392b;
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .role-card h3 {
+            font-size: 1.4em;
+            color: #c0392b;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .role-card .years {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .role-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        /* ===== 人生故事 ===== */
+        .story-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .story-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .story-title h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-content h3 {
+            font-size: 1.4em;
+            color: #c0392b;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .story-content p {
+            color: #555;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+
+        .story-content blockquote {
+            border-left: 4px solid #c0392b;
+            padding-left: 25px;
+            margin: 30px 0;
+            color: #c0392b;
+            font-size: 1.1em;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* ===== 藝術創作理念 ===== */
+        .art-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+        }
+
+        .art-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .art-title h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .art-item {
+            text-align: center;
+        }
+
+        .art-item-image {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .art-item-image img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .art-item h3 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .art-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .art-philosophy {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 4px solid #c0392b;
+        }
+
+        .art-philosophy h3 {
+            font-size: 1.4em;
+            color: #c0392b;
+            margin-bottom: 20px;
+        }
+
+        .art-philosophy p {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* ===== 專業成就 ===== */
+        .achievements-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .achievements-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .achievements-title h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.2);
+        }
+
+        .achievement-item h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .achievement-item p {
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        /* ===== 展覽信息 ===== */
+        .exhibition-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .exhibition-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .exhibition-title h2 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .exhibition-text {
+            font-size: 1.05em;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* ===== 頁尾 ===== */
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #c0392b;
+        }
+
+        /* ===== 響應式設計 ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 0.85em;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3em;
+            }
+
+            .intro-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .intro-text h2 {
+                font-size: 1.8em;
+            }
+
+            .roles-title h2,
+            .story-title h2,
+            .art-title h2,
+            .achievements-title h2 {
+                font-size: 1.8em;
+            }
+
+            .roles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .art-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content blockquote {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav h1 {
+                font-size: 1.1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.5em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav>
+        <div class="container">
+            <h1>黃雪梨</h1>
+            <ul>
+                <li><a href="#intro">介紹</a></li>
+                <li><a href="#roles">身份</a></li>
+                <li><a href="#story">故事</a></li>
+                <li><a href="#art">藝術</a></li>
+                <li><a href="#achievements">成就</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 英雄區 -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>黃雪梨教授</h1>
+                <p class="subtitle">從泥土裡長出翅膀</p>
+                <p class="tagline">Shirley Huang</p>
+                <p class="tagline">一段跨越金融、教育與藝術的生命故事</p>
+            </div>
+        </section>
+
+        <!-- 簡介區 -->
+        <section class="intro-section" id="intro">
+            <div class="intro-text">
+                <h2>關於黃雪梨</h2>
+                <p>
+                    黃雪梨教授是<strong>鹿港高中傑出校友</strong>，也是一位<strong>跨越多個領域的卓越成就者</strong>——她曾是美國Fortune 500金融機構的高階主管，現在是大學教授、藝術創作者與教育工作者。
+                </p>
+                <p>
+                    旅美近四十年，她在<strong>JPMorgan Chase、Bank of America、Wells Fargo</strong>等國際銀行擔任副總裁，並長期投身於<strong>社會服務與公益領導</strong>。近年回到台灣，選擇將人生經歷轉化為藝術創作與教育實踐，致力於培養新世代的同理心與創新思維。
+                </p>
+                <p>
+                    黃教授的一生印證了一個深刻的真理：<strong>「人的出身或許無法選擇，但生命的方向，仍然可以在一次次的選擇與堅持中，被慢慢改寫。」</strong>
+                </p>
+            </div>
+            <div class="intro-image">
+                <img src="portrait.png" alt="黃雪梨教授" loading="lazy">
+            </div>
+        </section>
+
+        <!-- 身份與角色 -->
+        <section class="roles-section" id="roles">
+            <div class="container">
+                <div class="roles-title">
+                    <h2>多重身份</h2>
+                    <p>每一個角色都是她對社會的承諾</p>
+                </div>
+
+                <div class="roles-grid">
+                    <!-- 金融專家 -->
+                    <div class="role-card">
+                        <h3>🏦 金融專家</h3>
+                        <div class="years">1980年代 ~ 2010年</div>
+                        <p>曾任JPMorgan Chase、Bank of America、Wells Fargo、California Federal Bank副總裁，負責洛杉磯、聖蓋博及河濱等區域市場的貸款業務，帶領團隊創造亮眼績效。</p>
+                    </div>
+
+                    <!-- 教育工作者 -->
+                    <div class="role-card">
+                        <h3>🎓 教育工作者</h3>
+                        <div class="years">2010年至今</div>
+                        <p>於East Los Angeles College任教，並於長堤大學、泰國中正管理大學、台灣文化大學、銘傳大學、實踐大學聘講學，課程涵蓋組織行為、管理學與EMI英語教學。</p>
+                    </div>
+
+                    <!-- 公益領導者 -->
+                    <div class="role-card">
+                        <h3>❤️ 公益領導者</h3>
+                        <div class="years">長期投入</div>
+                        <p>現任美國優利基金會執行長，曾任洛杉磯社區發展基金會董事長、蒙特利市商會總裁、東洛杉磯社區大學發展監督會委員，致力扶助經濟困難家庭。</p>
+                    </div>
+
+                    <!-- 藝術創作者 -->
+                    <div class="role-card">
+                        <h3>🎨 藝術創作者</h3>
+                        <div class="years">2010年至今</div>
+                        <p>透過油畫與色鉛筆插畫，記錄日常生活中的人物、女性身影與土地故事。作品關注被忽略的勞動者，用光影與色彩呈現生命的韌性與尊嚴。</p>
+                    </div>
+
+                    <!-- 作家 -->
+                    <div class="role-card">
+                        <h3>✍️ 作家</h3>
+                        <div class="years">2000年代至今</div>
+                        <p>曾任《美國通》雜誌專欄作家，著有中英文書籍記錄人生歷程與跨文化體悟，文章刊登於《皇冠》雜誌，展現深厚的文字底蘊與文學修養。</p>
+                    </div>
+
+                    <!-- 學者 -->
+                    <div class="role-card">
+                        <h3>📚 學者</h3>
+                        <div class="years">近年</div>
+                        <p>發表多篇國際期刊論著，主編撰寫新南向經濟課程，獲文化大學研究論文發表成果獎、創新課程開發獎，推動EMI教學與運算思維教育。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 人生故事 -->
+        <section class="story-section" id="story">
+            <div class="container">
+                <div class="story-title">
+                    <h2>人生故事</h2>
+                    <p>困頓中的光，堅持中的翅膀</p>
+                </div>
+
+                <div class="story-content">
+                    <h3>童年：被壓抑的藝術夢想</h3>
+                    <p>
+                        黃教授出生於經濟困難的家庭。童年時，她曾向母親表達對繪畫的渴望，卻換來一記巴掌。母親的話深深刺痛了她：「如果有一天淪為乞丐，有飯吃就已經很好了。」在那一刻，對藝術的熱愛彷彿被迫沉入谷底。
+                    </p>
+                    <p>
+                        但在高中版畫課上，她用一件破舊的毛線衣作為創作材料，作品意外被選出。那時她才再次驚覺，原來對藝術的熱愛，從未真正離開她的心底。只是現實，讓這個「吃百家飯、穿百家衣」長大的女孩，不敢擁有夢想。
+                    </p>
+
+                    <h3>奮鬥：離鄉背井尋找出口</h3>
+                    <p>
+                        為了改變命運，黃教授離鄉背井工作，依靠獎學金完成大學與研究所學業。在逢甲大學國際貿易系、Pepperdine University企業管理碩士、University of La Verne博士的求學過程中，她不斷突破自我極限。她親手在父親的墳前種下植物，希望那片黃土能長出一點綠意與生命。
+                    </p>
+                    <blockquote>
+                        「那段時間，我不知道我在種什麼，但我一直在種。或許，翅膀從來不是被給予的，而是在困境之中，一點一滴長出來的。」
+                    </blockquote>
+
+                    <h3>成就：美國四十年的職業生涯</h3>
+                    <p>
+                        黃教授在美國金融機構的高階職位上展現卓越能力。她曾獲得：
+                    </p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px; color: #666;">
+                        <li>加州聯邦銀行全銀行第一名經理表揚</li>
+                        <li>Wells Fargo「第37區績效第一名經理」</li>
+                        <li>2006年美國銀行「傑出人才獎」與「社區最具貢獻獎」</li>
+                        <li>2006年被選為世界華人工商婦女企管會「五大傑出女企業家」之一</li>
+                        <li>2006年《洛杉磯時報》評選為傑出女性企業家</li>
+                    </ul>
+                    <p>
+                        但隨著時間推移，她越來越在意的不是數字與績效，而是「人」本身的故事與情感。
+                    </p>
+
+                    <h3>轉折：重新拿起畫筆</h3>
+                    <p>
+                        成為母親後，為了鼓勵孩子欣賞藝術，黃教授重新拿起畫筆。在沒有正規科班訓練的情況下，她開始自學創作，摸索屬於自己的藝術語言。她曾懷疑自己是否太晚起步，是否能走得長遠。但這段從困境出發、透過長期自學與努力發展藝術的過程，讓她體悟到：
+                    </p>
+                    <blockquote>
+                        「藝術並不只是技巧的累積，而是生命經驗的沉澱。那些曾經的辛苦、責任與堅持，都成為我創作中最真實的力量。」
+                    </blockquote>
+
+                    <h3>回歸：投入教育與創作</h3>
+                    <p>
+                        在孩子逐漸能夠自立之後，黃教授選擇「急流勇退」，回到台灣投入教育領域。她深刻感受到部分年輕世代在歸屬感、存在感與方向感上的迷惘。因此，她更希望能將自己走過的生命經驗分享給年輕人。
+                    </p>
+                    <p>
+                        她相信：<strong>「人的出身或許無法選擇，但可以選擇面對人生的方式，也可以選擇未來的方向。」</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 藝術創作理念 -->
+        <section class="art-section" id="art">
+            <div class="container">
+                <div class="art-title">
+                    <h2>藝術創作</h2>
+                    <p>用光影讓被忽略的人被看見</p>
+                </div>
+
+                <div class="art-grid">
+                    <div class="art-item">
+                        <div class="art-item-image">
+                            <img src="art-02.png" alt="田間的女人" loading="lazy">
+                        </div>
+                        <h3>田間的女人</h3>
+                        <p>戴著斗笠、穿著紅花上衣的女性在花草綠葉間專注勞動，象徵女性在看似平凡的日常中隱含的堅韌力量。</p>
+                    </div>
+
+                    <div class="art-item">
+                        <div class="art-item-image">
+                            <img src="art-03.png" alt="瀑光拾影" loading="lazy">
+                        </div>
+                        <h3>瀑光拾影</h3>
+                        <p>捕捉自然中光與影的詩意對話，展現黃教授對光影細微變化的敏銳觀察與深刻理解。</p>
+                    </div>
+
+                    <div class="art-item">
+                        <div class="art-item-image">
+                            <img src="art-01.png" alt="從泥土裡長出翅膀" loading="lazy">
+                        </div>
+                        <h3>從泥土裡長出翅膀</h3>
+                        <p>色鉛筆插畫系列，描繪一名女性蹲在地上，雙手栽種著散發出形似巨大羽翼光芒的植物，象徵從困境中成長的力量。</p>
+                    </div>
+                </div>
+
+                <div class="art-philosophy">
+                    <h3>創作理念</h3>
+                    <p>
+                        黃教授的創作關注日常生活中被忽略的人——市場裡的勞動者、街頭來來往往的身影，以及為生活努力的人。她不以宏大敘事吸引目光，而是透過<strong>光影與色彩的細膩鋪陳</strong>，呈現生命的韌性、尊嚴與希望。
+                    </p>
+                    <p>
+                        她的作品多取材於<strong>日常生活中的人物與勞動身影</strong>，特別是<strong>女性與土地的連結</strong>。土地孕育生命也承載重量，女性在許多看似平凡的日常之中，同樣默默承擔、持續付出。
+                    </p>
+                    <p>
+                        <strong>「我不一定要被看見，但我希望我畫中的人，能被世界看見與肯定。」</strong> 這是黃教授藝術創作的核心動力——讓那些活在沒有掌聲舞台上的人，被看見、被理解，甚至被感謝。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 專業成就與榮譽 -->
+        <section class="achievements-section" id="achievements">
+            <div class="container">
+                <div class="achievements-title">
+                    <h2>專業成就</h2>
+                    <p>多領域的卓越表現與社會貢獻</p>
+                </div>
+
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <h3>💼 金融領導</h3>
+                        <p>美國Fortune 500公司高階主管，獲多項績效表揚與領導獎</p>
+                    </div>
+
+                    <div class="achievement-item">
+                        <h3>🏆 傑出獎項</h3>
+                        <p>2010年鹿港高中傑出校友、世界華人五大傑出女企業家、洛杉磯傑出女性</p>
+                    </div>
+
+                    <div class="achievement-item">
+                        <h3>👨‍🏫 教育成果</h3>
+                        <p>文化大學研究論文獎、創新課程開發獎、績優導師獎、EMI教學總召</p>
+                    </div>
+
+                    <div class="achievement-item">
+                        <h3>🤝 社區服務</h3>
+                        <p>洛杉磯社區發展基金會董事長、蒙特利市商會總裁、美國優利基金會執行長</p>
+                    </div>
+
+                    <div class="achievement-item">
+                        <h3>📚 學術發表</h3>
+                        <p>國際期刊發表論著數篇、出版中英文著作、《皇冠》雜誌專欄作家</p>
+                    </div>
+
+                    <div class="achievement-item">
+                        <h3>🎨 藝術展覽</h3>
+                        <p>《從泥土裡長出翅膀》主題展覽，展出油畫與色鉛筆插圖創作</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 展覽與出版計畫 -->
+        <section class="exhibition-section">
+            <div class="exhibition-content">
+                <div class="exhibition-title">
+                    <h2>《從泥土裡長出翅膀》特展</h2>
+                </div>
+
+                <div class="exhibition-text">
+                    <p>
+                        本次展覽是黃雪梨教授首次大規模呈現她的藝術創作成果。展覽分為兩個部分：
+                    </p>
+                    <p style="margin-top: 20px;">
+                        <strong>第一部分：色鉛筆插圖系列</strong><br>
+                        為未出版書籍《從泥土裡長出翅膀》創作的插圖，環繞於童年記憶、成長歷程，以及在現實中不斷尋找出口的思考。
+                    </p>
+                    <p style="margin-top: 20px;">
+                        <strong>第二部分：油畫創作系列</strong><br>
+                        記錄日常生活中的人物、自然景象與女性身影，透過光影與色彩呈現生命的韌性與尊嚴。
+                    </p>
+                    <p style="margin-top: 20px;">
+                        「泥土」象徵起點——那段成長中的困頓、壓抑與現實的重量；「翅膀」象徵希望、力量與自由。<br>
+                        這是一場關於堅持、關於看見、也關於生命本身的藝術展覽。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 黃雪梨教授 | 鹿港高中傑出校友</p>
+            <p>「我不一定要被看見，但我希望我畫中的人，能被世界看見與肯定。」</p>
+            <p style="margin-top: 15px; color: #95a5a6;">
+                聯絡資訊請洽詢 <a href="mailto:clinya0914@gmail.com">鹿港高中資訊媒體組</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
